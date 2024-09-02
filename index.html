@@ -6,6 +6,8 @@
     <title>Abdelomen Lubbad's World</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Fancybox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/4.0.0/css/fancybox.min.css" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -25,14 +27,20 @@
         .hero h1 {
             margin: 0;
             font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         .hero p {
             font-size: 1.5em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
         .gallery img {
             width: 100%;
             border-radius: 10px;
             margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
         }
         .milestone-item {
             margin-bottom: 20px;
@@ -98,7 +106,7 @@
                     <p><strong>Hobbies:</strong> Exploring, Playing with toys, Learning new things</p>
                 </div>
                 <div class="col-md-6">
-                    <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/IMG_5196.webp" alt="Abdelomen's Portfolio Picture" class="img-fluid rounded">
+                    <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/IMG_5196.webp" alt="Abdelomen's Portfolio Picture" class="img-fluid rounded shadow-lg">
                 </div>
             </div>
         </div>
@@ -110,13 +118,19 @@
             <h2 class="text-success mb-4">Abdelomen's Adventures</h2>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/7d42e6a4-5ac0-450a-aa45-c088adfb4c6f.JPG" alt="Abdelomen's Adventure 1" class="img-fluid">
+                    <a href="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/7d42e6a4-5ac0-450a-aa45-c088adfb4c6f.JPG" data-fancybox="gallery">
+                        <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/7d42e6a4-5ac0-450a-aa45-c088adfb4c6f.JPG" alt="Abdelomen's Adventure 1" class="img-fluid">
+                    </a>
                 </div>
                 <div class="col-md-4">
-                    <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/ac278008-ee8b-46d1-89d1-254e70c60d36.JPG" alt="Abdelomen's Adventure 2" class="img-fluid">
+                    <a href="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/ac278008-ee8b-46d1-89d1-254e70c60d36.JPG" data-fancybox="gallery">
+                        <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/ac278008-ee8b-46d1-89d1-254e70c60d36.JPG" alt="Abdelomen's Adventure 2" class="img-fluid">
+                    </a>
                 </div>
                 <div class="col-md-4">
-                    <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/00fe9fd6d28e6265d4494bd62bde719e34830d3d/IMG_5021.webp" alt="Abdelomen's Adventure 3" class="img-fluid">
+                    <a href="https://raw.githubusercontent.com/mlubbad/Abdelmonem/00fe9fd6d28e6265d4494bd62bde719e34830d3d/IMG_5021.webp" data-fancybox="gallery">
+                        <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/00fe9fd6d28e6265d4494bd62bde719e34830d3d/IMG_5021.webp" alt="Abdelomen's Adventure 3" class="img-fluid">
+                    </a>
                 </div>
             </div>
         </div>
@@ -174,5 +188,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Fancybox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/4.0.0/js/fancybox.umd.js"></script>
 </body>
 </html>
