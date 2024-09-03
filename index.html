@@ -124,56 +124,32 @@
             <h2 class="text-success mb-4">Abdelmonem's Adventures</h2>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/IMG_9088.webp" alt="Abdelmonem's Adventure 1" class="img-fluid" data-bs-toggle="modal" data-bs-target="#imageModal1">
+                    <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/IMG_9088.webp" alt="Abdelmonem's Adventure 1" class="img-fluid gallery-item" data-index="0">
                 </div>
                 <div class="col-md-4">
-                    <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/IMG_5524.webp" alt="Abdelmonem's Adventure 2" class="img-fluid" data-bs-toggle="modal" data-bs-target="#imageModal2">
+                    <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/IMG_5524.webp" alt="Abdelmonem's Adventure 2" class="img-fluid gallery-item" data-index="1">
                 </div>
                 <div class="col-md-4">
-                    <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/00fe9fd6d28e6265d4494bd62bde719e34830d3d/IMG_5021.webp" alt="Abdelmonem's Adventure 3" class="img-fluid" data-bs-toggle="modal" data-bs-target="#imageModal3">
+                    <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/00fe9fd6d28e6265d4494bd62bde719e34830d3d/IMG_5021.webp" alt="Abdelmonem's Adventure 3" class="img-fluid gallery-item" data-index="2">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Modals for Images -->
-    <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+    <!-- Modal for Gallery -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="imageModalLabel1">Abdelmonem's Adventure 1</h5>
+                    <h5 class="modal-title" id="galleryModalLabel">Gallery</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/IMG_9088.webp" class="img-fluid" alt="Abdelmonem's Adventure 1">
+                <div class="modal-body text-center">
+                    <img src="" id="galleryModalImage" class="img-fluid" alt="">
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="imageModal2" tabindex="-1" aria-labelledby="imageModalLabel2" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="imageModalLabel2">Abdelmonem's Adventure 2</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/IMG_5524.webp" class="img-fluid" alt="Abdelmonem's Adventure 2">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="imageModalLabel3">Abdelmonem's Adventure 3</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/00fe9fd6d28e6265d4494bd62bde719e34830d3d/IMG_5021.webp" class="img-fluid" alt="Abdelmonem's Adventure 3">
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-secondary" id="prevImage">Previous</button>
+                    <button type="button" class="btn btn-secondary" id="nextImage">Next</button>
                 </div>
             </div>
         </div>
@@ -234,8 +210,41 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Form Handling Script -->
+    <!-- Gallery Modal Script -->
     <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('.gallery-item');
+        const modalImage = document.getElementById('galleryModalImage');
+        let currentIndex = 0;
+
+        function showImage(index) {
+            const img = images[index];
+            modalImage.src = img.src;
+            modalImage.alt = img.alt;
+            currentIndex = index;
+        }
+
+        images.forEach((img, index) => {
+            img.addEventListener('click', function() {
+                showImage(index);
+                const galleryModal = new bootstrap.Modal(document.getElementById('galleryModal'));
+                galleryModal.show();
+            });
+        });
+
+        document.getElementById('prevImage').addEventListener('click', function() {
+            if (currentIndex > 0) {
+                showImage(currentIndex - 1);
+            }
+        });
+
+        document.getElementById('nextImage').addEventListener('click', function() {
+            if (currentIndex < images.length - 1) {
+                showImage(currentIndex + 1);
+            }
+        });
+    });
+
     document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault();
         var form = event.target;
