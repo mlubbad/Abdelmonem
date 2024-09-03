@@ -188,7 +188,6 @@
         </div>
     </section>
 
-
     <!-- Footer -->
     <footer class="py-3">
         <div class="container text-center">
@@ -201,11 +200,18 @@
     <!-- Fancybox JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/4.0.0/js/fancybox.umd.js"></script>
 
+    <!-- Initialize Fancybox -->
     <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        Fancybox.bind("[data-fancybox]", {
+            // Custom options
+        });
+    });
+
     document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault();
         var form = event.target;
-    
+
         fetch(form.action, {
             method: form.method,
             body: new FormData(form),
@@ -224,6 +230,6 @@
         });
     });
     </script>
-    
+
 </body>
 </html>
