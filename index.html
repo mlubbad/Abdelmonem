@@ -10,8 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Fancybox CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/4.0.0/css/fancybox.min.css" />
     <style>
         body {
             font-family: 'IBM Plex Sans', sans-serif;
@@ -45,6 +43,7 @@
         }
         .gallery img:hover {
             transform: scale(1.05);
+            cursor: pointer;
         }
         .milestone-item {
             margin-bottom: 20px;
@@ -125,23 +124,60 @@
             <h2 class="text-success mb-4">Abdelmonem's Adventures</h2>
             <div class="row">
                 <div class="col-md-4">
-                    <a href="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/IMG_9088.webp" data-fancybox="gallery" data-caption="Abdelmonem's Adventure 1">
-                        <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/IMG_9088.webp" alt="Abdelmonem's Adventure 1" class="img-fluid">
-                    </a>
+                    <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/IMG_9088.webp" alt="Abdelmonem's Adventure 1" class="img-fluid" data-bs-toggle="modal" data-bs-target="#imageModal1">
                 </div>
                 <div class="col-md-4">
-                    <a href="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/IMG_5524.webp" data-fancybox="gallery" data-caption="Abdelmonem's Adventure 2">
-                        <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/IMG_5524.webp" alt="Abdelmonem's Adventure 2" class="img-fluid">
-                    </a>
+                    <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/IMG_5524.webp" alt="Abdelmonem's Adventure 2" class="img-fluid" data-bs-toggle="modal" data-bs-target="#imageModal2">
                 </div>
                 <div class="col-md-4">
-                    <a href="https://raw.githubusercontent.com/mlubbad/Abdelmonem/00fe9fd6d28e6265d4494bd62bde719e34830d3d/IMG_5021.webp" data-fancybox="gallery" data-caption="Abdelmonem's Adventure 3">
-                        <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/00fe9fd6d28e6265d4494bd62bde719e34830d3d/IMG_5021.webp" alt="Abdelmonem's Adventure 3" class="img-fluid">
-                    </a>
+                    <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/00fe9fd6d28e6265d4494bd62bde719e34830d3d/IMG_5021.webp" alt="Abdelmonem's Adventure 3" class="img-fluid" data-bs-toggle="modal" data-bs-target="#imageModal3">
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modals for Images -->
+    <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel1">Abdelmonem's Adventure 1</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/IMG_9088.webp" class="img-fluid" alt="Abdelmonem's Adventure 1">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="imageModal2" tabindex="-1" aria-labelledby="imageModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel2">Abdelmonem's Adventure 2</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/main/IMG_5524.webp" class="img-fluid" alt="Abdelmonem's Adventure 2">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel3">Abdelmonem's Adventure 3</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://raw.githubusercontent.com/mlubbad/Abdelmonem/00fe9fd6d28e6265d4494bd62bde719e34830d3d/IMG_5021.webp" class="img-fluid" alt="Abdelmonem's Adventure 3">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Milestones Section -->
     <section id="milestones" class="section py-5">
@@ -197,17 +233,9 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Fancybox JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/4.0.0/js/fancybox.umd.js"></script>
 
-    <!-- Initialize Fancybox -->
+    <!-- Form Handling Script -->
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        Fancybox.bind("[data-fancybox]", {
-            // Custom options
-        });
-    });
-
     document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault();
         var form = event.target;
